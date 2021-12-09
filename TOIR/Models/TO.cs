@@ -7,6 +7,7 @@ using TOIR.Infrastructure;
 
 namespace TOIR.Models
 {
+    // ТО для списка
     internal class TO
     {
         public int ID { get; set; }

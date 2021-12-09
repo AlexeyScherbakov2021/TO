@@ -1,0 +1,38 @@
+﻿<Window x:Class="TOIR.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TOIR"
+        xmlns:vm="clr-namespace:TOIR.ViewModels"
+        mc:Ignorable="d"
+        Title="Техническое обслуживание и ремонт" Height="716" Width="1100" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="DataGridCell" x:Key="CellRight">
+            <Style.Setters>
+                <Setter Property="TextBlock.TextAlignment" Value="Right" />
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DataGrid IsReadOnly="True" HorizontalAlignment="Left" Height="282" Margin="79,66,0,0" VerticalAlignment="Top" 
+                  Width="583" ItemsSource="{Binding listEquipment}" AutoGenerateColumns="False" SelectionMode="Single" 
+                  CanUserDeleteRows="False" CanUserAddRows="False" AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" 
+                  HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD" FontSize="14" SelectedItem="{Binding CurrentEquip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenEquipmentWindow}"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Оборудование" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Дата ввода" Binding="{Binding DateStart, StringFormat=dd.MM.yyyy}" />
+                <DataGridTextColumn Header="Окончание гарантии" Binding="{Binding EndWarranty, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Реглам. ТО" Binding="{Binding ReglamentTO.to.Name}"/>
+                <DataGridTextColumn Header="Дата планового ТО" Binding="{Binding PlanTO.DatePlan, StringFormat=dd.MM.yyyy}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

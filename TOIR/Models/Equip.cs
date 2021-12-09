@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TOIR.Models
 {
+    // Оборудование для списка оборудования
     internal class Equip
     {
         public int ID { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TOIR.Models
 {
+    // ТО с указанными датами для оборудования
     internal class EquipTO
     {
         public int ID { get; set; }
