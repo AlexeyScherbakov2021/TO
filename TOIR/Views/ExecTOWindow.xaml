@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TOIR.Views"
         xmlns:vm="clr-namespace:TOIR.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding to.to.Name}" Height="747.93" Width="955.968" WindowStartupLocation="CenterScreen">
+        Title="{Binding to.Name}" Height="747.93" Width="955.968" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:ExecTOWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="634" Margin="21,56,0,0" 
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="480" Margin="21,92,0,0" 
                   VerticalAlignment="Top" Width="904" ItemsSource="{Binding to.listWorkTO}"
                   AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD">
             <DataGrid.Columns>
@@ -27,6 +27,9 @@
                 </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="21,26,0,0" TextWrapping="Wrap" Text="{Binding to.Name}" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Button Content="Завершить ТО" HorizontalAlignment="Center" Margin="0,625,0,0" VerticalAlignment="Top" Width="109" 
+                Height="33" Command="{Binding FinalTOCommand}"/>
 
     </Grid>
 </Window>

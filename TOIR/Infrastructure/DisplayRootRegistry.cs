@@ -55,36 +55,34 @@ namespace TOIR.Infrastructure
 
             return window;
         }
+               
+        Dictionary<object, Window> openWindows = new Dictionary<object, Window>();
+        public void ShowPresentation(object vm)
+        {
+            if (vm == null)
+                throw new ArgumentNullException("vm");
+            if (openWindows.ContainsKey(vm))
+                throw new InvalidOperationException("UI for this VM is already displayed");
+            var window = CreateWindowWithVM(vm);
+            window.Show();
+            openWindows[vm] = window;
+        }
 
+        public void HidePresentation(object vm)
+        {
+            Window window;
+            if (!openWindows.TryGetValue(vm, out window))
+                throw new InvalidOperationException("UI for this VM is not displayed");
+            window.Close();
+            openWindows.Remove(vm);
+        }
 
-
-        //Dictionary<object, Window> openWindows = new Dictionary<object, Window>();
-        //public void ShowPresentation(object vm)
-        //{
-        //    if (vm == null)
-        //        throw new ArgumentNullException("vm");
-        //    if (openWindows.ContainsKey(vm))
-        //        throw new InvalidOperationException("UI for this VM is already displayed");
-        //    var window = CreateWindowWithVM(vm);
-        //    window.Show();
-        //    openWindows[vm] = window;
-        //}
-
-        //public void HidePresentation(object vm)
-        //{
-        //    Window window;
-        //    if (!openWindows.TryGetValue(vm, out window))
-        //        throw new InvalidOperationException("UI for this VM is not displayed");
-        //    window.Close();
-        //    openWindows.Remove(vm);
-        //}
-
-        //public async Task ShowModalPresentation(object vm)
-        //{
-        //    var window = CreateWindowWithVM(vm);
-        //    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        //    await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
-        //}
+        public async Task ShowModalPresentation(object vm)
+        {
+            var window = CreateWindowWithVM(vm);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
+        }
 
     }
 }

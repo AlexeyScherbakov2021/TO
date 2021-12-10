@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace TOIR.Repository
             throw new NotImplementedException();
         }
 
-        public List<WorkForTO> GetListWorkForTO(EquipTO et)
+        public ObservableCollection<WorkForTO> GetListWorkForTO(EquipTO et)
         {
             throw new NotImplementedException();
         }

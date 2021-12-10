@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,38 +71,38 @@ namespace TOIR.Repository
             switch(eqip.ID)
             {
                 case 1:
-                    eqip.listPlanTO = new List<EquipTO>()
+                    eqip.listPlanTO = new ObservableCollection<EquipTO>()
                     {
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
                     };
                     break;
                 case 2:
-                    eqip.listPlanTO = new List<EquipTO>()
+                    eqip.listPlanTO = new ObservableCollection<EquipTO>()
                     {
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 12, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 5, 1) },
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2020, 12, 10), EqipID = eqip.ID }
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2019, 12, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 5, 1) },
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2020, 12, 10), EqipID = eqip.ID }
                     };
                     break;
                 case 3:
-                    eqip.listPlanTO = new List<EquipTO>()
+                    eqip.listPlanTO = new ObservableCollection<EquipTO>()
                     {
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 3, 8), EqipID = eqip.ID, DateSet = new DateTime(2018, 9, 7) },
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 3, 7), EqipID = eqip.ID }
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2018, 3, 8), EqipID = eqip.ID, DateSet = new DateTime(2018, 9, 7) },
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2019, 3, 7), EqipID = eqip.ID }
                     };
                     break;
                 case 4:
-                    eqip.listPlanTO = new List<EquipTO>()
+                    eqip.listPlanTO = new ObservableCollection<EquipTO>()
                     {
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 7, 24), EqipID = eqip.ID, DateSet = new DateTime(2020, 1, 22) },
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2020, 7, 22), EqipID = eqip.ID }
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2019, 7, 24), EqipID = eqip.ID, DateSet = new DateTime(2020, 1, 22) },
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2020, 7, 22), EqipID = eqip.ID }
                     };
                     break;
                 case 5:
-                    eqip.listPlanTO = new List<EquipTO>()
+                    eqip.listPlanTO = new ObservableCollection<EquipTO>()
                     {
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
-                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
+                        new EquipTO(listTO[0]) { equip = eqip, DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
                     };
                     break;
 
@@ -118,46 +119,46 @@ namespace TOIR.Repository
             switch (eqip.ID)
             {
                 case 1:
-                    eqip.listReglamnetTO = new List<EquipTO>()
+                    eqip.listReglamnetTO = new ObservableCollection<EquipTO>()
                     {
                         new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
                         new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2021, 12, 24), EqipID = eqip.ID },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2021, 12, 24), EqipID = eqip.ID },
                     };
                     break;
                 case 2:
-                    eqip.listReglamnetTO = new List<EquipTO>()
+                    eqip.listReglamnetTO = new ObservableCollection<EquipTO>()
                     {
                         new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
                         new EquipTO(listTO[2]) { DatePlan = new DateTime(2023, 6, 2), EqipID = eqip.ID },
                     };
                     break;
                 case 3:
-                    eqip.listReglamnetTO = new List<EquipTO>()
+                    eqip.listReglamnetTO = new ObservableCollection<EquipTO>()
                     {
                         new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
                         new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[5]) { DatePlan = new DateTime(2022, 1, 11), EqipID = eqip.ID },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2022, 1, 11), EqipID = eqip.ID },
                     };
                     break;
                 case 4:
-                    eqip.listReglamnetTO = new List<EquipTO>()
+                    eqip.listReglamnetTO = new ObservableCollection<EquipTO>()
                     {
                         new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
                         new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2022, 8, 20), EqipID = eqip.ID },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2022, 8, 20), EqipID = eqip.ID },
                     };
                     break;
                 case 5:
-                    eqip.listReglamnetTO = new List<EquipTO>()
+                    eqip.listReglamnetTO = new ObservableCollection<EquipTO>()
                     {
                         new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
                         new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2023, 2, 4), EqipID = eqip.ID },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2023, 2, 4), EqipID = eqip.ID },
                     };
                     break;
 
@@ -173,11 +174,9 @@ namespace TOIR.Repository
             List<TO> list = new List<TO>()
             {
                 new TO() { ID=1, WarrantyMonth=6, kindTO = KindTO.Planned, Name = "Плановое ТО" },
-                new TO() { ID=2, WarrantyMonth=24, kindTO = KindTO.TO1, Name = "ТО-1" },
-                new TO() { ID=3, WarrantyMonth=12, kindTO = KindTO.TO2, Name = "ТО-2" },
-                new TO() { ID=4, WarrantyMonth=12, kindTO = KindTO.TOLong, Name = "ТО-3" },
-                new TO() { ID=5, WarrantyMonth=12, kindTO = KindTO.TOLong, Name = "ТО-4" },
-                new TO() { ID=6, WarrantyMonth=12, kindTO = KindTO.TOLong, Name = "ТО-5" },
+                new TO() { ID=2, WarrantyMonth=24, kindTO = KindTO.TO1, Name = "ТО-1", NumTO = 1},
+                new TO() { ID=3, WarrantyMonth=12, kindTO = KindTO.TO2, Name = "ТО-2", NumTO = 2},
+                new TO() { ID=4, WarrantyMonth=12, kindTO = KindTO.TOLong, Name = "ТО-3", NumTO = 3 },
             };
 
             // привязка работ для каждого ТО
@@ -198,7 +197,7 @@ namespace TOIR.Repository
             int[] arrayTO2 = new int[] { 0,1,2,3,4,5,6,7,8,9,10,12,13,15,16,17,18,19,20,21,22,24,25,26,27,28,29};
             int[] arrayTOLong = new int[] { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,24,25,26,27,28,29};
 
-            to.listWorks = new List<Works>();
+            to.listWorks = new ObservableCollection<Works>();
             switch (to.kindTO)
             {
                 case KindTO.Planned:
@@ -273,16 +272,16 @@ namespace TOIR.Repository
         //------------------------------------------------------------------------------------------------------------
         // получение списка выполненных работ для ТО 
         //------------------------------------------------------------------------------------------------------------
-        public List<WorkForTO> GetListWorkForTO(EquipTO et)
+        public ObservableCollection<WorkForTO> GetListWorkForTO(EquipTO et)
         {
-            List<WorkForTO> listWT = new List<WorkForTO>();
+            ObservableCollection<WorkForTO> listWT = new ObservableCollection<WorkForTO>();
 
             Random rnd = new Random();
 
             foreach (Works w in et.listWorks)
             {
                 WorkForTO wt = new WorkForTO(w);
-                wt.CheckedTO = rnd.Next(0, 100) >= 50;
+                wt.CheckedTO = rnd.Next(0, 100) >= 10;
                 listWT.Add(wt);
             }
 

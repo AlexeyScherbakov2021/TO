@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using TOIR.Commands;
+using TOIR.Infrastructure;
 using TOIR.Models;
 using TOIR.Repository;
 using TOIR.ViewModels.Base;
@@ -31,7 +32,7 @@ namespace TOIR.ViewModels
         private bool CanOpenEquipmentWindow(object p) => CurrentEquip != null;
         private void OnOpenEquipmentWindowExecuted(object p)
         {
-            EquipmentWindowViewModel vm = new EquipmentWindowViewModel(CurrentEquip);
+            EquipmentWindowViewModel vm = new EquipmentWindowViewModel(CurrentEquip, repo);
             EquipmentWindow win = (EquipmentWindow)(Application.Current as App).displayRootRegistry.CreateWindowWithVM(vm);
             win.ShowDialog();
         }
@@ -50,8 +51,6 @@ namespace TOIR.ViewModels
 
             // получение списка оборудования
             listEquipment = repo.GetListEquipment();
-
-
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,6 @@ namespace TOIR.Repository
         void GetListWorkForTO(TO to);               // получение списка работ для указанного ТО
         void GetCurrentReglamentTO(Equip eqip);      // получение текущего рагламентного ТО для указанного оборудования
         void GetCurrentPlanTO(Equip eqip);          // получение текущего планового ТО для указанного оборудования
-        List<WorkForTO> GetListWorkForTO(EquipTO et);  // получение списка проведенных работ для ТО
+        ObservableCollection<WorkForTO> GetListWorkForTO(EquipTO et);  // получение списка проведенных работ для ТО
     }
 }

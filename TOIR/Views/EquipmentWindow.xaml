@@ -21,21 +21,27 @@
         <TextBlock HorizontalAlignment="Left" Margin="24,121,0,0" TextWrapping="Wrap" Text="Окончание гарантии" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="20" Margin="188,120,0,0" TextWrapping="Wrap" Text="{Binding equip.EndWarranty, StringFormat=dd.MM.yyyy}" VerticalAlignment="Top" Width="105"/>
         <DataGrid HorizontalAlignment="Left" IsReadOnly="True" Height="209" Margin="31,171,0,0" VerticalAlignment="Top" Width="350" 
-                  ItemsSource="{Binding equip.listReglamnetTO}" AutoGenerateColumns="False"
+                  ItemsSource="{Binding equip.listReglamnetTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
                   HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentReglTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecTOCommand}" CommandParameter="Regl" />
+            </DataGrid.InputBindings>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
-                <DataGridTextColumn Header="Дата проведения" Binding="{Binding DateSet,  Converter={StaticResource ConvertDates}}"/>
+                <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dg" HorizontalAlignment="Left" Height="209" IsReadOnly="True" Margin="406,171,0,0" VerticalAlignment="Top" 
                   Width="346" ItemsSource="{Binding equip.listPlanTO}" AutoGenerateColumns="False" 
                   HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentPlanTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecTOCommand}" CommandParameter="Plan" />
+            </DataGrid.InputBindings>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
-                <DataGridTextColumn Header="Дата проведения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}}"/>
+                <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Провести ТО" HorizontalAlignment="Left" Command="{Binding OpenExecTOCommand}" CommandParameter="Regl" Margin="153,410,0,0" VerticalAlignment="Top" Width="114" Height="32"/>
