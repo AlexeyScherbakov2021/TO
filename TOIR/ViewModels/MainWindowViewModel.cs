@@ -15,11 +15,9 @@ namespace TOIR.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-
-        IRepository repo = new RepoGen();
+        static public IRepository repo = new RepoGen();
         public List<Equip> listEquipment { get; set; }
         public Equip CurrentEquip { get; set; }
-
 
         #region Команды
         public ICommand CloseApplicationCommand { get; }

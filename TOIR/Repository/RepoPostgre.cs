@@ -44,6 +44,11 @@ namespace TOIR.Repository
             throw new NotImplementedException();
         }
 
+        public List<WorkForTO> GetListWorkForTO(EquipTO et)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Works> GetListWorks()
         {
             throw new NotImplementedException();

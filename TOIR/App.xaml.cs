@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using TOIR.Infrastructure;
+using TOIR.Repository;
 using TOIR.ViewModels;
 using TOIR.Views;
 

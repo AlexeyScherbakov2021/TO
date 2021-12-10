@@ -66,10 +66,48 @@ namespace TOIR.Repository
         //------------------------------------------------------------------------------------------------------------
         public void GetListPlanTO(Equip eqip)
         {
-            eqip.listPlanTO = new List<EquipTO>()
+
+            switch(eqip.ID)
             {
-                new EquipTO() { to = listTO[0], DatePlan = new DateTime(2019,3,5), TOID = 1, EqipID = eqip.ID }
-            };
+                case 1:
+                    eqip.listPlanTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
+                    };
+                    break;
+                case 2:
+                    eqip.listPlanTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 12, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 5, 1) },
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2020, 12, 10), EqipID = eqip.ID }
+                    };
+                    break;
+                case 3:
+                    eqip.listPlanTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 3, 8), EqipID = eqip.ID, DateSet = new DateTime(2018, 9, 7) },
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 3, 7), EqipID = eqip.ID }
+                    };
+                    break;
+                case 4:
+                    eqip.listPlanTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 7, 24), EqipID = eqip.ID, DateSet = new DateTime(2020, 1, 22) },
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2020, 7, 22), EqipID = eqip.ID }
+                    };
+                    break;
+                case 5:
+                    eqip.listPlanTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2018, 2, 15), EqipID = eqip.ID, DateSet = new DateTime(2018, 8, 10) },
+                        new EquipTO(listTO[0]) { DatePlan = new DateTime(2019, 2, 10), EqipID = eqip.ID }
+                    };
+                    break;
+
+            }
+
+
         }
 
         //------------------------------------------------------------------------------------------------------------
@@ -77,13 +115,54 @@ namespace TOIR.Repository
         //------------------------------------------------------------------------------------------------------------
         public void GetListReglamentTO(Equip eqip)
         {
-            eqip.listReglamnetTO = new List<EquipTO>()
+            switch (eqip.ID)
             {
-                new EquipTO() { to = listTO[1], DatePlan = new DateTime(2019, 3, 5), TOID = 2, EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
-                new EquipTO() { to = listTO[2], DatePlan = new DateTime(2020, 6, 15), TOID = 3, EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
-                new EquipTO() { to = listTO[3], DatePlan = new DateTime(2021, 9, 24), TOID = 4, EqipID = eqip.ID/*, DateSet = new DateTime(2022, 3, 5)*/},
-                //new EquipTO() { to = listTO[4], DatePlan = new DateTime(2022, 3, 5), TOID = 5, EqipID = eqip.ID },
-            };
+                case 1:
+                    eqip.listReglamnetTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2021, 12, 24), EqipID = eqip.ID },
+                    };
+                    break;
+                case 2:
+                    eqip.listReglamnetTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2023, 6, 2), EqipID = eqip.ID },
+                    };
+                    break;
+                case 3:
+                    eqip.listReglamnetTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[5]) { DatePlan = new DateTime(2022, 1, 11), EqipID = eqip.ID },
+                    };
+                    break;
+                case 4:
+                    eqip.listReglamnetTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[4]) { DatePlan = new DateTime(2022, 8, 20), EqipID = eqip.ID },
+                    };
+                    break;
+                case 5:
+                    eqip.listReglamnetTO = new List<EquipTO>()
+                    {
+                        new EquipTO(listTO[1]) { DatePlan = new DateTime(2019, 3, 5), EqipID = eqip.ID, DateSet = new DateTime(2020, 2, 7) },
+                        new EquipTO(listTO[2]) { DatePlan = new DateTime(2020, 6, 15), EqipID = eqip.ID, DateSet = new DateTime(2021, 11, 10) },
+                        new EquipTO(listTO[3]) { DatePlan = new DateTime(2023, 2, 4), EqipID = eqip.ID },
+                    };
+                    break;
+
+            }
+
         }
 
         //------------------------------------------------------------------------------------------------------------
@@ -187,6 +266,28 @@ namespace TOIR.Repository
             };
 
             return listWorks;
+        }
+
+
+
+        //------------------------------------------------------------------------------------------------------------
+        // получение списка выполненных работ для ТО 
+        //------------------------------------------------------------------------------------------------------------
+        public List<WorkForTO> GetListWorkForTO(EquipTO et)
+        {
+            List<WorkForTO> listWT = new List<WorkForTO>();
+
+            Random rnd = new Random();
+
+            foreach (Works w in et.listWorks)
+            {
+                WorkForTO wt = new WorkForTO(w);
+                wt.CheckedTO = rnd.Next(0, 100) >= 50;
+                listWT.Add(wt);
+            }
+
+
+            return listWT;
         }
     }
 }

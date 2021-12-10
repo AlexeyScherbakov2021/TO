@@ -30,7 +30,7 @@
                 <DataGridTextColumn Header="Оборудование" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Дата ввода" Binding="{Binding DateStart, StringFormat=dd.MM.yyyy}" />
                 <DataGridTextColumn Header="Окончание гарантии" Binding="{Binding EndWarranty, StringFormat=dd.MM.yyyy}"/>
-                <DataGridTextColumn Header="Реглам. ТО" Binding="{Binding ReglamentTO.to.Name}"/>
+                <DataGridTextColumn Header="Реглам. ТО" Binding="{Binding ReglamentTO.Name}"/>
                 <DataGridTextColumn Header="Дата планового ТО" Binding="{Binding PlanTO.DatePlan, StringFormat=dd.MM.yyyy}" />
             </DataGrid.Columns>
         </DataGrid>

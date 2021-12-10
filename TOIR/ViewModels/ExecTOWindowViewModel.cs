@@ -16,16 +16,17 @@ namespace TOIR.ViewModels
         public ExecTOWindowViewModel(EquipTO t)
         {
             to = t;
-            if (to.to.listWorkTO == null)
+
+            to.listWorkTO = MainWindowViewModel.repo.GetListWorkForTO(to);
+
+            if (to.listWorkTO == null)
             {
-                to.to.listWorkTO = new List<WorkForTO>();
-                foreach(Works w in to.to.listWorks)
+                to.listWorkTO = new List<WorkForTO>();
+                foreach(Works w in to.listWorks)
                 {
-                    WorkForTO wt = new WorkForTO();
-                    wt.TOID = w.ID;
-                    wt.work = w;
-                    wt.WorkID = w.ID;
-                    to.to.listWorkTO.Add(wt);
+                    WorkForTO wt = new WorkForTO(w);
+                    wt.TO_ID = to.ID;
+                    to.listWorkTO.Add(wt);
                 }
             }
         }

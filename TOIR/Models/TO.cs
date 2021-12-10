@@ -15,6 +15,5 @@ namespace TOIR.Models
         public string Name { get; set; }                // наименование ТО
         public int WarrantyMonth { get; set; }          // действие гарантии в месяцах
         public List<Works> listWorks { get; set; }      // список работ для ТО
-        public List<WorkForTO> listWorkTO { get; set; } // список работ на выполнение
     }
 }

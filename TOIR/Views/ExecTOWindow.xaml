@@ -12,11 +12,11 @@
     </Window.DataContext>
     <Grid>
         <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="634" Margin="21,56,0,0" 
-                  VerticalAlignment="Top" Width="904" ItemsSource="{Binding to.to.listWorkTO}"
+                  VerticalAlignment="Top" Width="904" ItemsSource="{Binding to.listWorkTO}"
                   AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding work.Num}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Наименование работ" Width="580" Binding="{Binding work.Name}" IsReadOnly="True">
+                <DataGridTextColumn Header="№" Binding="{Binding Num}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Наименование работ" Width="580" Binding="{Binding Name}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>

@@ -24,7 +24,7 @@
                   ItemsSource="{Binding equip.listReglamnetTO}" AutoGenerateColumns="False"
                   HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentReglTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding to.Name}" />
+                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
                 <DataGridTextColumn Header="Дата проведения" Binding="{Binding DateSet,  Converter={StaticResource ConvertDates}}"/>
             </DataGrid.Columns>
@@ -33,7 +33,7 @@
                   Width="346" ItemsSource="{Binding equip.listPlanTO}" AutoGenerateColumns="False" 
                   HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentPlanTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding to.Name}" />
+                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
                 <DataGridTextColumn Header="Дата проведения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}}"/>
             </DataGrid.Columns>
