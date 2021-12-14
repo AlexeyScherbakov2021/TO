@@ -56,6 +56,20 @@ namespace TOIR.Infrastructure
             return window;
         }
                
+        //Window GetWindow(object vm)
+        //{
+        //    if (vm == null)
+        //        throw new ArgumentNullException("vm");
+
+        //    var vmType = vm.GetType(); 
+
+        //    if (vmToWindowMapping.ContainsKey(vmType))
+        //        throw new InvalidOperationException($"Type {vmType.FullName} is already registered");
+
+        //    return (Window)vmToWindowMapping[vmType];
+        //}
+
+
         Dictionary<object, Window> openWindows = new Dictionary<object, Window>();
         public void ShowPresentation(object vm)
         {

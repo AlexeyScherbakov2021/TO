@@ -128,6 +128,7 @@
     <Compile Include="Converters\ConvertDates.cs" />
     <Compile Include="Infrastructure\DisplayRootRegistry.cs" />
     <Compile Include="Infrastructure\Enums.cs" />
+    <Compile Include="Infrastructure\ImportFromCSV.cs" />
     <Compile Include="Models\Equip.cs" />
     <Compile Include="Models\EquipTO.cs" />
     <Compile Include="Models\TO.cs" />

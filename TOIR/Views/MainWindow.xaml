@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TOIR"
         xmlns:vm="clr-namespace:TOIR.ViewModels"
         mc:Ignorable="d"
-        Title="Техническое обслуживание и ремонт" Height="716" Width="1100" WindowStartupLocation="CenterScreen">
+        Title="Техническое обслуживание и ремонт" Height="556" Width="778" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="DataGridCell" x:Key="CellRight">
             <Style.Setters>
@@ -19,20 +19,24 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid IsReadOnly="True" HorizontalAlignment="Left" Height="282" Margin="79,66,0,0" VerticalAlignment="Top" 
-                  Width="583" ItemsSource="{Binding listEquipment}" AutoGenerateColumns="False" SelectionMode="Single" 
+        <GroupBox Margin="30" Background="#FFD5DFE5" Header="Список оборудования" FontSize="18">
+            <GroupBox.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#FFDADADA" BlurRadius="44" Direction="314"/>
+            </GroupBox.Effect>
+            <DataGrid IsReadOnly="True" Margin="10" ItemsSource="{Binding listEquipment}" AutoGenerateColumns="False" SelectionMode="Single" 
                   CanUserDeleteRows="False" CanUserAddRows="False" AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" 
                   HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD" FontSize="14" SelectedItem="{Binding CurrentEquip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <DataGrid.InputBindings>
-                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenEquipmentWindow}"/>
-            </DataGrid.InputBindings>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Оборудование" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Дата ввода" Binding="{Binding DateStart, StringFormat=dd.MM.yyyy}" />
-                <DataGridTextColumn Header="Окончание гарантии" Binding="{Binding EndWarranty, StringFormat=dd.MM.yyyy}"/>
-                <DataGridTextColumn Header="Реглам. ТО" Binding="{Binding ReglamentTO.Name}"/>
-                <DataGridTextColumn Header="Дата планового ТО" Binding="{Binding PlanTO.DatePlan, StringFormat=dd.MM.yyyy}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGrid.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenEquipmentWindow}"/>
+                </DataGrid.InputBindings>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Оборудование" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Дата ввода" Binding="{Binding DateStart, StringFormat=dd.MM.yyyy}" />
+                    <DataGridTextColumn Header="Окончание гарантии" Binding="{Binding EndWarranty, StringFormat=dd.MM.yyyy}"/>
+                    <DataGridTextColumn Header="Реглам. ТО" Binding="{Binding ReglamentTO.Name}"/>
+                    <DataGridTextColumn Header="Дата планового ТО" Binding="{Binding PlanTO.DatePlan, StringFormat=dd.MM.yyyy}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </Window>

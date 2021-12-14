@@ -6,30 +6,42 @@
         xmlns:local="clr-namespace:TOIR.Views"
         xmlns:vm="clr-namespace:TOIR.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding to.Name}" Height="747.93" Width="955.968" WindowStartupLocation="CenterScreen">
+        Title="{Binding to.Name}" Height="789.93" Width="955.968" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:ExecTOWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="480" Margin="21,92,0,0" 
-                  VerticalAlignment="Top" Width="904" ItemsSource="{Binding to.listWorkTO}"
-                  AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding Num}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Наименование работ" Width="580" Binding="{Binding Name}" IsReadOnly="True">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Выполенние" Binding="{Binding CheckedTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
-                </DataGridCheckBoxColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBlock HorizontalAlignment="Left" Margin="21,26,0,0" TextWrapping="Wrap" Text="{Binding to.Name}" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Button Content="Завершить ТО" HorizontalAlignment="Center" Margin="0,625,0,0" VerticalAlignment="Top" Width="109" 
+        <GroupBox Header="Список выполненных работ" Margin="10,55,4,75" Background="#FFD5DFE5" 
+                  FontSize="16">
+            <GroupBox.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#FFDADADA" BlurRadius="44" Direction="314"/>
+            </GroupBox.Effect>
+            <DataGrid AutoGenerateColumns="False" Margin="10" ItemsSource="{Binding to.listWorkTO}" FontSize="12"
+                  AlternationCount="1" AlternatingRowBackground="#FFE4E4E4" HorizontalGridLinesBrush="#FFCDCDCD" VerticalGridLinesBrush="#FFCDCDCD" Width="901" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding Num}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Наименование работ" Width="700" Binding="{Binding Name}" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Выполенние" Binding="{Binding CheckedTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    </DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <Border Margin="20,14,20,0" VerticalAlignment="Top" Background="#FFD5DFE5" Height="30" BorderBrush="Black" BorderThickness="1" >
+            <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="{Binding to.Name}" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+        </Border>
+        <Button Content="Завершить ТО" HorizontalAlignment="Center" Margin="419,0,419,16" VerticalAlignment="Bottom" Width="110" 
                 Height="33" Command="{Binding FinalTOCommand}"/>
+        <Button Content="Закрыть окно" HorizontalAlignment="Center" Margin="598,0,240,16" VerticalAlignment="Bottom" Width="110" 
+                Height="33" Command="{Binding CloseCommand}"/>
+
+        <Button Content="Загрузить файл" HorizontalAlignment="Center" Margin="226,0,612,16" VerticalAlignment="Bottom" Width="110" 
+                Height="33" Command="{Binding FromFileCommand}"/>
 
     </Grid>
 </Window>

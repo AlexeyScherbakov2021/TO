@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:TOIR.ViewModels"
         xmlns:cnv="clr-namespace:TOIR.Converters"
         mc:Ignorable="d"
-        Title="{Binding equip.Name}" Height="635" Width="952.5" WindowStartupLocation="CenterScreen">
+        Title="{Binding equip.Name}" Height="644" Width="859.5" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:EquipmentWindowViewModel/>
     </Window.DataContext>
@@ -15,37 +15,56 @@
         <cnv:ConvertDates x:Key="ConvertDates"/>
     </Window.Resources>
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="24,36,0,0" TextWrapping="Wrap" Text="{Binding equip.Name}" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.5,0.5"/>
-        <TextBlock HorizontalAlignment="Left" Margin="24,90,0,0" TextWrapping="Wrap" Text="Дата ввода в эксплуатацию" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="188,89,0,0" TextWrapping="Wrap" Text="{Binding equip.DateStart, StringFormat=dd.MM.yyyy}" VerticalAlignment="Top" Width="105"/>
-        <TextBlock HorizontalAlignment="Left" Margin="24,121,0,0" TextWrapping="Wrap" Text="Окончание гарантии" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="188,120,0,0" TextWrapping="Wrap" Text="{Binding equip.EndWarranty, StringFormat=dd.MM.yyyy}" VerticalAlignment="Top" Width="105"/>
-        <DataGrid HorizontalAlignment="Left" IsReadOnly="True" Height="209" Margin="31,171,0,0" VerticalAlignment="Top" Width="350" 
+        <Border Margin="20,24,20,0" VerticalAlignment="Top" Background="#FFD5DFE5" Height="30" BorderBrush="Black" BorderThickness="1" >
+            <TextBlock TextWrapping="Wrap" Text="{Binding equip.Name}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Margin="24,70,0,0" TextWrapping="Wrap" Text="Дата ввода в эксплуатацию" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="188,69,0,0" TextWrapping="Wrap" Text="{Binding equip.DateStart, StringFormat=dd.MM.yyyy}" VerticalAlignment="Top" Width="105"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,101,0,0" TextWrapping="Wrap" Text="Окончание гарантии" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="188,100,0,0" TextWrapping="Wrap" Text="{Binding equip.EndWarranty, StringFormat=dd.MM.yyyy}" VerticalAlignment="Top" Width="105"/>
+        <GroupBox Header="Регламентное ТО" Margin="14,140,0,64" Background="#FFD5DFE5" 
+                  FontSize="16" HorizontalAlignment="Left" Width="399">
+            <GroupBox.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#FFDADADA" BlurRadius="44" Direction="314"/>
+            </GroupBox.Effect>
+            <Grid>
+                <DataGrid IsReadOnly="True" Margin="10,15,10,72" FontSize="12"
                   ItemsSource="{Binding equip.listReglamnetTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
-                  HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentReglTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <DataGrid.InputBindings>
-                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecTOCommand}" CommandParameter="Regl" />
-            </DataGrid.InputBindings>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
-                <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid x:Name="dg" HorizontalAlignment="Left" Height="209" IsReadOnly="True" Margin="406,171,0,0" VerticalAlignment="Top" 
-                  Width="346" ItemsSource="{Binding equip.listPlanTO}" AutoGenerateColumns="False" 
-                  HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentPlanTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            <DataGrid.InputBindings>
-                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecTOCommand}" CommandParameter="Plan" />
-            </DataGrid.InputBindings>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
-                <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Content="Провести ТО" HorizontalAlignment="Left" Command="{Binding OpenExecTOCommand}" CommandParameter="Regl" Margin="153,410,0,0" VerticalAlignment="Top" Width="114" Height="32"/>
-        <Button Content="Провести ТО" HorizontalAlignment="Left" Command="{Binding OpenExecTOCommand}" CommandParameter="Plan" Margin="509,410,0,0" VerticalAlignment="Top" Width="114" Height="32"/>
+                  HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentReglTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="290" SelectionMode="Single">
+                    <DataGrid.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecTOCommand}" CommandParameter="Regl" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
+                        <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Провести ТО" HorizontalAlignment="Left" Command="{Binding OpenExecTOCommand}" 
+                        Margin="115,0,0,18" VerticalAlignment="Bottom" Width="114" Height="32"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Плановое ТО" Margin="434,140,0,64" Background="#FFD5DFE5" FontSize="16"
+                  HorizontalAlignment="Left" Width="399">
+            <GroupBox.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#FFDADADA" BlurRadius="44" Direction="314"/>
+            </GroupBox.Effect>
+            <Grid>
+                <DataGrid x:Name="dg" Height="290" IsReadOnly="True" Margin="10,15,10,72" FontSize="12" ItemsSource="{Binding equip.listPlanTO}" AutoGenerateColumns="False" 
+                  HorizontalGridLinesBrush="#FFCFCFCF" VerticalGridLinesBrush="#FFCFCFCF" AlternationCount="1" AlternatingRowBackground="#FFE6E6E6" SelectedItem="{Binding CurrentPlanTO, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single">
+                    <DataGrid.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenExecPlanTOCommand}" CommandParameter="Plan" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Наименование ТО" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Планируемая дата" Binding="{Binding DatePlan, Converter={StaticResource ConvertDates}}" />
+                        <DataGridTextColumn Header="Дата выполнения" Binding="{Binding DateSet, Converter={StaticResource ConvertDates}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Провести ТО" HorizontalAlignment="Left" Command="{Binding OpenExecPlanTOCommand}" 
+                        Margin="115,0,0,18" VerticalAlignment="Bottom" Width="114" Height="32"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>

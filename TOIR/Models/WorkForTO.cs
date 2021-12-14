@@ -11,7 +11,12 @@ namespace TOIR.Models
     {
         //public int ID { get; set; }
         public int TO_ID { get; set; }           // ID для ТО
-        public bool CheckedTO { get; set; }     // флаг работа проведена
+        private bool _CheckedTO;
+        public bool CheckedTO
+        {
+            get => _CheckedTO;
+            set { _CheckedTO = value; OnPropertyChanged(); }
+        }     // флаг работа проведена
 
         //public Works work { get; set; }         // ссылка на работу
         //public int WorkID { get; set; }         // ID для работы

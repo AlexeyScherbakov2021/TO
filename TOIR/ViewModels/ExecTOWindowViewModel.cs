@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using TOIR.Commands;
+using TOIR.Infrastructure;
 using TOIR.Models;
 using TOIR.Repository;
 using TOIR.ViewModels.Base;
+using TOIR.Views;
 
 namespace TOIR.ViewModels
 {
@@ -22,23 +24,46 @@ namespace TOIR.ViewModels
 
         #region Команды
         public ICommand FinalTOCommand { get; }
-        private bool CanFinalTOCommand(object p) => true;
+        private bool CanFinalTOCommand(object p)
+        {
+            return to.listWorkTO.Where(w => w.CheckedTO == false).Count() == 0;
+        }
         private void OnFinalTOCommandExecuted(object p)
         {
-            if(to.listWorkTO.Where(w => w.CheckedTO == false).Count() == 0)
-            {
-                // все работы выполнены
-                result = true;
-                MessageBox.Show("ТО завершено. Гарантия продлевается.", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            //if(to.listWorkTO.Where(w => w.CheckedTO == false).Count() == 0)
+            //{
+            //    // все работы выполнены
+            //}
+            result = true;
+            win.Close();
         }
+
+        public ICommand CloseCommand { get; }
+        private bool CanCloseCommand(object p) => true;
+        private void OnCloseCmmandExecuted(object p)
+        {
+            result = false;
+            win.Close();
+        }
+
+        public ICommand FromFileCommand { get; }
+        private bool CanFromFileCommand(object p) => true;
+        private void OnFromFileCmmandExecuted(object p)
+        {
+            ImportFromCSV csv = new ImportFromCSV(to);
+            csv.LoadFromCSV(@"c:\Work\VisualC#\TO\Документы\book.csv");
+        }
+
         #endregion
 
+        public ExecTOWindow win;
 
         public ExecTOWindowViewModel() { }
         public ExecTOWindowViewModel(EquipTO t, /*EquipmentWindowViewModel mod,*/ IRepository rep)
         {
             FinalTOCommand = new LambdaCommand(OnFinalTOCommandExecuted, CanFinalTOCommand);
+            CloseCommand = new LambdaCommand(OnCloseCmmandExecuted, CanCloseCommand);
+            FromFileCommand = new LambdaCommand(OnFromFileCmmandExecuted, CanFromFileCommand);
             repo = rep;
             //model = mod;
             to = t;
